@@ -75,3 +75,30 @@ $stmt = sqlsrv_query($conn, $sql);
     </style>
 </head>
 <body>
+
+<div class="container">
+    <h2>Assigned Patients</h2>
+
+    <table>
+        <tr>
+            <th>Full Name</th>
+            <th>IC Number</th>
+            <th>Phone</th>
+            <th>Condition</th>
+        </tr>
+        <?php while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)): ?>
+            <tr>
+                <td><?= htmlspecialchars($row['full_name']) ?></td>
+                <td><?= htmlspecialchars($row['ic_number']) ?></td>
+                <td><?= htmlspecialchars($row['phone_number']) ?></td>
+                <td><?= htmlspecialchars($row['medical_condition']) ?></td>
+            </tr>
+        <?php endwhile; ?>
+    </table>
+
+    <a href="dashboard_staff.php" class="back-btn">⬅️ Back to Dashboard</a>
+</div>
+
+</body>
+</html>
+
