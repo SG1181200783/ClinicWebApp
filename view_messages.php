@@ -97,3 +97,34 @@ $stmt = sqlsrv_query($conn, $sql, array($username));
     </style>
 </head>
 <body></body>
+
+<div class="container">
+    <h2>Your Messages</h2>
+
+    <table>
+        <tr>
+            <th>From</th>
+            <th>Time</th>
+            <th>Preview</th>
+            <th>Action</th>
+        </tr>
+
+        <?php while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)): ?>
+            <tr>
+                <td><?= htmlspecialchars($row['sender_username']) ?></td>
+                <td><?= $row['timestamp']->format('Y-m-d H:i') ?></td>
+                <td><?= htmlspecialchars(substr(base64_decode($row['message_encrypted']), 0, 10)) ?>...</td>
+                <td>
+                    <a href="unmask_message.php?id=<?= $row['id'] ?>" class="btn-unmask">Unmask</a>
+                </td>
+            </tr>
+        <?php endwhile; ?>
+    </table>
+
+    <div class="back-container">
+        <a href="dashboard_<?= $role ?>.php" class="back-btn">⬅️ Back to Dashboard</a>
+    </div>
+</div>
+
+</body>
+</html>
