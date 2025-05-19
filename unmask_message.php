@@ -40,3 +40,98 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "❌ Incorrect password.";
     }
 }
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unmask Message</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f6f8;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 80px auto;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 25px;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        input[type="password"] {
+            width: 80%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+        }
+
+        input[type="submit"] {
+            margin-top: 15px;
+            width: 50%;
+            padding: 12px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+
+        .message-display {
+            white-space: pre-wrap;
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            color: #2c3e50;
+        }
+
+        .error {
+            text-align: center;
+            margin-top: 15px;
+            color: #c0392b;
+            font-weight: bold;
+        }
+
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        .back-btn a {
+            background-color: #7f8c8d;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-btn a:hover {
+            background-color: #626e70;
+        }
+    </style>
+</head>
+<body>
