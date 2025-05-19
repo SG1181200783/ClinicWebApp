@@ -135,3 +135,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
 </head>
 <body>
+
+<div class="container">
+    <h2>Unmask Message</h2>
+
+    <?php if ($message): ?>
+        <p><strong>Full Message:</strong></p>
+        <div class="message-display"><?= nl2br(htmlspecialchars($message)) ?></div>
+    <?php else: ?>
+        <form method="POST">
+            <label>Enter your password to unmask the message:</label><br><br>
+            <input type="password" name="password" required><br>
+            <input type="submit" value="Unmask">
+        </form>
+        <?php if (!empty($error)): ?>
+            <div class="error"><?= $error ?></div>
+        <?php endif; ?>
+    <?php endif; ?>
+
+    <div class="back-btn">
+        <a href="view_messages.php">⬅️ Back to Messages</a>
+    </div>
+</div>
+
+</body>
+</html>
