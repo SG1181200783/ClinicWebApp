@@ -113,3 +113,34 @@ $stmt = sqlsrv_query($conn, $sql);
     </style>
 </head>
 <body>
+
+<div class="container">
+    <h2>All Patients</h2>
+
+    <table>
+        <tr>
+            <th>Full Name</th>
+            <th>IC Number</th>
+            <th>Phone</th>
+            <th>Condition</th>
+            <th>Actions</th>
+        </tr>
+        <?php while ($row = sqlsrv_fetch_array($stmt, SQLSRV_FETCH_ASSOC)): ?>
+            <tr>
+                <td><?= htmlspecialchars($row['full_name']) ?></td>
+                <td><?= htmlspecialchars($row['ic_number']) ?></td>
+                <td><?= htmlspecialchars($row['phone_number']) ?></td>
+                <td><?= htmlspecialchars($row['medical_condition']) ?></td>
+                <td>
+                    <a href="edit_patient.php?id=<?= $row['id'] ?>" class="action-btn edit-btn">Edit</a>
+                    <a href="delete_patient.php?id=<?= $row['id'] ?>" class="action-btn delete-btn" onclick="return confirm('Are you sure you want to delete this patient?');">Delete</a>
+                </td>
+            </tr>
+        <?php endwhile; ?>
+    </table>
+
+    <a href="dashboard_admin.php" class="back-btn">⬅️ Back to Dashboard</a>
+</div>
+
+</body>
+</html>
