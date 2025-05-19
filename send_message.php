@@ -124,3 +124,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
 </head>
 <body>
+
+<div class="container">
+    <h2>Send Message to <?php echo htmlspecialchars($receiver); ?></h2>
+
+    <form method="POST">
+        <label for="message">Message:</label><br>
+        <textarea name="message" rows="6" required></textarea><br>
+        <input type="submit" value="Send Message">
+    </form>
+
+    <?php if (!empty($success)): ?>
+        <div class="feedback success"><?= $success ?></div>
+    <?php endif; ?>
+
+    <?php if (!empty($error)): ?>
+        <div class="feedback error"><?= $error ?></div>
+    <?php endif; ?>
+
+    <div class="back-container">
+        <a href="dashboard_<?php echo $role; ?>.php" class="back-btn">⬅️ Back to Dashboard</a>
+    </div>
+</div>
+
+</body>
+</html>
+
+
