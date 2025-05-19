@@ -28,3 +28,99 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "❌ Failed to send message.<br>" . print_r(sqlsrv_errors(), true);
     }
 }
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send Message</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 80px auto;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 25px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+            resize: vertical;
+            margin-top: 6px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 15px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+
+        .feedback {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .success {
+            color: #27ae60;
+        }
+
+        .error {
+            color: #c0392b;
+        }
+
+        .back-btn {
+            display: inline-block;
+            background-color: #7f8c8d;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            margin-top: 25px;
+        }
+
+        .back-btn:hover {
+            background-color: #626e70;
+        }
+
+        .back-container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
